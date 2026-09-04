@@ -1,70 +1,113 @@
-// Page navigation
-function showPage(page) {
-    // Hide all pages
-    document.querySelectorAll('.page-section').forEach(p => p.classList.remove('active'));
-    // Show target
-    document.getElementById('page-' + page).classList.add('active');
+(function () {
+    'use strict';
 
-    // Update nav links
-    document.querySelectorAll('.nav-links a, .mobile-nav a').forEach(a => {
-        a.classList.remove('active');
-        if (a.dataset.page === page) a.classList.add('active');
-    });
+    // ── ELEMENTS ──
+    const navbar = document.getElementById('navbar');
+    const menuToggle = document.getElementById('menuToggle');
+    const mobileMenu = document.getElementById('mobileMenu');
+    const pages = document.querySelectorAll('.page');
 
-    // Scroll to top
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    // Gather every navigation link in one list
+    const allNavLinks = document.querySelectorAll('[data-nav]');
 
-    // Re-trigger fade-in animations
-    setTimeout(() => {
-        observeFadeIns();
-    }, 100);
-}
+    // ── NAVIGATE ──
+    function navigateTo(id) {
+        // 1. Hide every page
+        pages.forEach(p => {
+            p.classList.remove('active', 'entering');
+        });
 
-// Mobile menu
-function toggleMobileMenu() {
-    const btn = document.querySelector('.mobile-menu-btn');
-    const nav = document.getElementById('mobileNav');
-    btn.classList.toggle('open');
-    nav.classList.toggle('open');
-}
+        // 2. Show target with entrance animation
+        const target = document.getElementById('page-' + id);
+        if (!target) return;
+        target.classList.add('active', 'entering');
 
-function closeMobileMenu() {
-    document.querySelector('.mobile-menu-btn').classList.remove('open');
-    document.getElementById('mobileNav').classList.remove('open');
-}
+        // Remove "entering" class after animation ends so it doesn't replay
+        target.addEventListener('animationend', function handler() {
+            target.classList.remove('entering');
+            target.removeEventListener('animationend', handler);
+        });
 
-// Nav scroll effect
-window.addEventListener('scroll', () => {
-    const nav = document.getElementById('navbar');
-    if (window.scrollY > 10) {
-        nav.classList.add('scrolled');
-    } else {
-        nav.classList.remove('scrolled');
-    }
-});
-
-// Intersection observer for fade-in
-function observeFadeIns() {
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-                const el = entry.target;
-                // Stagger siblings
-                const parent = el.parentElement;
-                const siblings = Array.from(parent.querySelectorAll('.fade-in'));
-                const i = siblings.indexOf(el);
-                setTimeout(() => {
-                    el.classList.add('visible');
-                }, i * 80);
-                observer.unobserve(el);
+        // 3. Update active states on every link
+        allNavLinks.forEach(a => {
+            if (a.getAttribute('data-nav') === id) {
+                a.classList.add('active');
+            } else {
+                a.classList.remove('active');
             }
         });
-    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
 
-    document.querySelectorAll('.fade-in:not(.visible)').forEach(el => {
-        observer.observe(el);
+        // 4. Scroll to top
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+
+        // 5. Close mobile menu if open
+        closeMobile();
+
+        // 6. Re-observe animations for new page
+        setTimeout(observeAnimations, 60);
+    }
+
+    // ── LINK CLICKS ──
+    allNavLinks.forEach(link => {
+        link.addEventListener('click', function (e) {
+            e.preventDefault();
+            const id = this.getAttribute('data-nav');
+            if (id) navigateTo(id);
+        });
     });
-}
 
-// Init
-observeFadeIns();
+    // ── MOBILE MENU ──
+    function closeMobile() {
+        menuToggle.classList.remove('open');
+        mobileMenu.classList.remove('open');
+    }
+
+    menuToggle.addEventListener('click', function () {
+        this.classList.toggle('open');
+        mobileMenu.classList.toggle('open');
+    });
+
+    // Close mobile menu if window resizes above breakpoint
+    window.addEventListener('resize', function () {
+        if (window.innerWidth > 768) closeMobile();
+    });
+
+    // ── SCROLL EFFECTS ──
+    window.addEventListener('scroll', function () {
+        if (window.scrollY > 8) {
+            navbar.classList.add('scrolled');
+        } else {
+            navbar.classList.remove('scrolled');
+        }
+    }, { passive: true });
+
+    // ── INTERSECTION OBSERVER (scroll animations) ──
+    let observer;
+
+    function observeAnimations() {
+        // Disconnect old observer if exists
+        if (observer) observer.disconnect();
+
+        const items = document.querySelectorAll('.anim-in:not(.show)');
+        if (!items.length) return;
+
+        observer = new IntersectionObserver(function (entries) {
+            entries.forEach(function (entry) {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('show');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, {
+            threshold: 0.15,
+            rootMargin: '0px 0px -30px 0px'
+        });
+
+        items.forEach(function (el) {
+            observer.observe(el);
+        });
+    }
+
+    // ── INIT ──
+    observeAnimations();
+})();
