@@ -1,0 +1,646 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BrailleVision — Samsung Solve for Tomorrow</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav id="navbar">
+        <div class="nav-inner">
+            <a href="#" class="nav-logo" onclick="showPage('home')">
+                <div class="nav-logo-icon">
+                    <div class="braille-dots">
+                        <span class="active"></span><span></span>
+                        <span class="active"></span><span></span>
+                        <span class="active"></span><span></span>
+                    </div>
+                </div>
+                <span class="nav-logo-text">BrailleVision</span>
+                <span class="nav-logo-badge">SFT 2025</span>
+            </a>
+            <div class="nav-links">
+                <a href="#" class="active" data-page="home" onclick="showPage('home')">Home</a>
+                <a href="#" data-page="hardware" onclick="showPage('hardware')">Hardware</a>
+                <a href="#" data-page="software" onclick="showPage('software')">Software</a>
+                <a href="#" data-page="about" onclick="showPage('about')">About</a>
+            </div>
+            <button class="mobile-menu-btn" onclick="toggleMobileMenu()" aria-label="Toggle menu">
+                <div class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </button>
+        </div>
+    </nav>
+
+    <div class="mobile-nav" id="mobileNav">
+        <a href="#" class="active" data-page="home" onclick="showPage('home'); closeMobileMenu();">Home</a>
+        <a href="#" data-page="hardware" onclick="showPage('hardware'); closeMobileMenu();">Hardware</a>
+        <a href="#" data-page="software" onclick="showPage('software'); closeMobileMenu();">Software</a>
+        <a href="#" data-page="about" onclick="showPage('about'); closeMobileMenu();">About</a>
+    </div>
+
+    <!-- HOME PAGE -->
+    <div id="page-home" class="page-section active">
+
+        <section class="hero">
+            <div class="hero-eyebrow">
+                <span class="dot"></span>
+                Samsung Solve for Tomorrow 2025
+            </div>
+            <h1>Turning printed text into <span class="accent">Braille</span>, instantly.</h1>
+            <p class="hero-subtitle">
+                We're building an affordable, portable device that photographs text, recognizes each letter, and raises solenoid-driven Braille pins in real time — making the printed world accessible to those who are visually impaired.
+            </p>
+            <div class="hero-actions">
+                <a href="#" class="btn-primary" onclick="showPage('hardware')">
+                    Explore the build
+                    <span class="btn-arrow">→</span>
+                </a>
+                <a href="#" class="btn-secondary" onclick="showPage('about')">
+                    Meet the team
+                    <span class="btn-arrow">→</span>
+                </a>
+            </div>
+        </section>
+
+        <div class="stats-bar">
+            <div class="stats-inner">
+                <div class="stat-item">
+                    <div class="stat-number">253M</div>
+                    <div class="stat-label">Visually impaired worldwide</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">10</div>
+                    <div class="stat-label">Braille cells in final device</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">6</div>
+                    <div class="stat-label">Solenoid pins per cell</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">&lt;$100</div>
+                    <div class="stat-label">Target device cost</div>
+                </div>
+            </div>
+        </div>
+
+        <section class="section">
+            <div class="section-header fade-in">
+                <div class="section-label">How it works</div>
+                <h2 class="section-title">From camera to fingertips in four steps</h2>
+                <p class="section-desc">Our device bridges the gap between printed text and tactile reading through a streamlined pipeline.</p>
+            </div>
+            <div class="process-grid">
+                <div class="process-card fade-in">
+                    <div class="process-step">Step 01</div>
+                    <div class="process-icon">📷</div>
+                    <h3>Capture</h3>
+                    <p>The user presses a button to photograph any printed text — a book page, a sign, a restaurant menu.</p>
+                </div>
+                <div class="process-card fade-in">
+                    <div class="process-step">Step 02</div>
+                    <div class="process-icon">🔍</div>
+                    <h3>Recognize</h3>
+                    <p>OCR software identifies every character in the image, building a string of recognized text with high accuracy.</p>
+                </div>
+                <div class="process-card fade-in">
+                    <div class="process-step">Step 03</div>
+                    <div class="process-icon">⚙️</div>
+                    <h3>Translate</h3>
+                    <p>Each character is mapped to its corresponding Braille pattern — a 6-dot configuration unique to every letter and symbol.</p>
+                </div>
+                <div class="process-card fade-in">
+                    <div class="process-step">Step 04</div>
+                    <div class="process-icon">✋</div>
+                    <h3>Output</h3>
+                    <p>Solenoid pins raise and lower to form tactile Braille cells, 10 characters at a time, for the user to read by touch.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="section-header fade-in">
+                <div class="section-label">Why it matters</div>
+                <h2 class="section-title">Accessibility shouldn't be a luxury</h2>
+            </div>
+            <div class="impact-grid">
+                <div class="impact-card featured fade-in">
+                    <div class="impact-icon">🌍</div>
+                    <h3>The accessibility gap is enormous</h3>
+                    <p>Only a small fraction of published materials are available in Braille. Commercial refreshable Braille displays cost $3,000–$15,000. Our goal is to build a functional alternative for under $100.</p>
+                    <div class="impact-stat">
+                        <span>→</span>
+                        Less than 5% of published books are available in accessible formats
+                    </div>
+                </div>
+                <div class="impact-card fade-in">
+                    <div class="impact-icon">🏫</div>
+                    <h3>Built for students</h3>
+                    <p>Visually impaired students often lack tools to independently access printed materials in classrooms. This device gives them autonomy.</p>
+                </div>
+                <div class="impact-card fade-in">
+                    <div class="impact-icon">💰</div>
+                    <h3>Radically affordable</h3>
+                    <p>By using commodity microcontrollers and simple solenoids, we cut costs by orders of magnitude compared to commercial Braille displays.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="section-header fade-in">
+                <div class="section-label">Our team</div>
+                <h2 class="section-title">Vernon Hills High School</h2>
+                <p class="section-desc">A group of students passionate about engineering accessible technology for our community.</p>
+            </div>
+            <div class="team-grid">
+                <div class="team-card fade-in">
+                    <div class="team-avatar">TL</div>
+                    <h3>Team Lead</h3>
+                    <div class="team-role">Project Director</div>
+                    <p>Leading hardware/software integration and project coordination</p>
+                </div>
+                <div class="team-card fade-in">
+                    <div class="team-avatar">HW</div>
+                    <h3>Hardware Team</h3>
+                    <div class="team-role">Electronics & Fabrication</div>
+                    <p>Solenoid driver design, PCB layout, and enclosure prototyping</p>
+                </div>
+                <div class="team-card fade-in">
+                    <div class="team-avatar">SW</div>
+                    <h3>Software Team</h3>
+                    <div class="team-role">Vision & Translation</div>
+                    <p>OCR pipeline, Braille mapping, and microcontroller firmware</p>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+    <!-- HARDWARE PAGE -->
+    <div id="page-hardware" class="page-section">
+
+        <section class="hw-hero">
+            <div class="section-label">Hardware</div>
+            <h1>Two approaches, one mission</h1>
+            <p>We're evaluating two core platform options. Both share the same solenoid output stage, speaker, and button interface — they differ in processing power and camera capability.</p>
+        </section>
+
+        <section class="section" style="padding-top: 1rem;">
+            <div class="comparison-wrapper">
+
+                <!-- Option A -->
+                <div class="hw-card">
+                    <div class="hw-card-header">
+                        <div class="hw-option-label">Option A</div>
+                        <h2>Arduino Uno R4 + Arducam</h2>
+                        <p>Lightweight, lower cost, proven ecosystem</p>
+                    </div>
+                    <div class="hw-card-body">
+                        <ul class="hw-component-list">
+                            <li>
+                                <div class="component-icon">🔧</div>
+                                <div class="component-info">
+                                    <h4>Arduino Uno R4 WiFi</h4>
+                                    <p>Renesas RA4M1 @ 48MHz, 256KB flash. Handles solenoid control and serial communication.</p>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="component-icon">📸</div>
+                                <div class="component-info">
+                                    <h4>Arducam OV2640</h4>
+                                    <p>2MP camera module with SPI interface. Adequate resolution for text capture at close range.</p>
+                                </div>
+                            </li>
+                        </ul>
+                        <div style="margin-top: 1.25rem;">
+                            <span class="spec-tag">48MHz CPU</span>
+                            <span class="spec-tag">256KB Flash</span>
+                            <span class="spec-tag">2MP Camera</span>
+                            <span class="spec-tag">SPI Interface</span>
+                            <span class="spec-tag">5V Logic</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Option B (Preferred) -->
+                <div class="hw-card preferred">
+                    <div class="hw-card-badge">Preferred</div>
+                    <div class="hw-card-header">
+                        <div class="hw-option-label">Option B</div>
+                        <h2>Raspberry Pi 5 + ZeroCam</h2>
+                        <p>Full Linux OS, onboard OCR, superior image processing</p>
+                    </div>
+                    <div class="hw-card-body">
+                        <ul class="hw-component-list">
+                            <li>
+                                <div class="component-icon">🖥️</div>
+                                <div class="component-info">
+                                    <h4>Raspberry Pi 5</h4>
+                                    <p>Quad-core Cortex-A76 @ 2.4GHz, 4/8GB RAM. Runs OCR natively — no external processing needed.</p>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="component-icon">📷</div>
+                                <div class="component-info">
+                                    <h4>ZeroCam (CSI Camera)</h4>
+                                    <p>5MP camera with CSI ribbon connector. Fast, low-latency image capture with excellent text clarity.</p>
+                                </div>
+                            </li>
+                        </ul>
+                        <div style="margin-top: 1.25rem;">
+                            <span class="spec-tag">2.4GHz Quad-Core</span>
+                            <span class="spec-tag">4–8GB RAM</span>
+                            <span class="spec-tag">5MP Camera</span>
+                            <span class="spec-tag">CSI Interface</span>
+                            <span class="spec-tag">Linux OS</span>
+                            <span class="spec-tag">Native OCR</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Shared Components -->
+            <div class="shared-section fade-in">
+                <div class="section-header">
+                    <div class="section-label">Shared across both options</div>
+                    <h2 class="section-title">Common components</h2>
+                </div>
+                <div class="shared-grid">
+                    <div class="shared-card">
+                        <div class="s-icon">⚡</div>
+                        <h4>Solenoid Driver Board</h4>
+                        <p>Controls 60 solenoids (10 cells × 6 pins) via shift registers and MOSFETs</p>
+                    </div>
+                    <div class="shared-card">
+                        <div class="s-icon">🔊</div>
+                        <h4>Speaker Module</h4>
+                        <p>Audio feedback for button presses, status updates, and optional text-to-speech</p>
+                    </div>
+                    <div class="shared-card">
+                        <div class="s-icon">🔘</div>
+                        <h4>Tactile Button</h4>
+                        <p>Large, easy-to-find button triggers photo capture and page navigation</p>
+                    </div>
+                    <div class="shared-card">
+                        <div class="s-icon">🔋</div>
+                        <h4>Power Supply</h4>
+                        <p>Rechargeable LiPo battery pack with USB-C charging for portability</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Braille Output Section -->
+            <div class="braille-explainer fade-in">
+                <div class="braille-explainer-grid">
+                    <div class="braille-visual braille-animated">
+                        <!-- H -->
+                        <div class="braille-cell-wrapper">
+                            <div class="braille-cell">
+                                <div class="braille-pin raised"></div>
+                                <div class="braille-pin raised"></div>
+                                <div class="braille-pin raised"></div>
+                                <div class="braille-pin"></div>
+                                <div class="braille-pin"></div>
+                                <div class="braille-pin raised"></div>
+                            </div>
+                            <div class="braille-cell-label">H</div>
+                        </div>
+                        <!-- E -->
+                        <div class="braille-cell-wrapper">
+                            <div class="braille-cell">
+                                <div class="braille-pin raised"></div>
+                                <div class="braille-pin"></div>
+                                <div class="braille-pin raised"></div>
+                                <div class="braille-pin raised"></div>
+                                <div class="braille-pin"></div>
+                                <div class="braille-pin"></div>
+                            </div>
+                            <div class="braille-cell-label">E</div>
+                        </div>
+                        <!-- L -->
+                        <div class="braille-cell-wrapper">
+                            <div class="braille-cell">
+                                <div class="braille-pin raised"></div>
+                                <div class="braille-pin"></div>
+                                <div class="braille-pin raised"></div>
+                                <div class="braille-pin raised"></div>
+                                <div class="braille-pin raised"></div>
+                                <div class="braille-pin"></div>
+                            </div>
+                            <div class="braille-cell-label">L</div>
+                        </div>
+                        <!-- L -->
+                        <div class="braille-cell-wrapper">
+                            <div class="braille-cell">
+                                <div class="braille-pin raised"></div>
+                                <div class="braille-pin"></div>
+                                <div class="braille-pin raised"></div>
+                                <div class="braille-pin raised"></div>
+                                <div class="braille-pin raised"></div>
+                                <div class="braille-pin"></div>
+                            </div>
+                            <div class="braille-cell-label">L</div>
+                        </div>
+                        <!-- O -->
+                        <div class="braille-cell-wrapper">
+                            <div class="braille-cell">
+                                <div class="braille-pin raised"></div>
+                                <div class="braille-pin"></div>
+                                <div class="braille-pin raised"></div>
+                                <div class="braille-pin"></div>
+                                <div class="braille-pin raised"></div>
+                                <div class="braille-pin"></div>
+                            </div>
+                            <div class="braille-cell-label">O</div>
+                        </div>
+                    </div>
+                    <div class="braille-explainer-text">
+                        <h3>The solenoid Braille cell</h3>
+                        <p>
+                            Each Braille cell consists of 6 solenoid-driven pins arranged in a 2×3 grid. When energized, a pin raises above the surface to create a tactile dot. The combination of raised and lowered pins encodes a specific character.
+                        </p>
+                        <p>
+                            Our final device uses <strong>10 cells in a row</strong>, allowing the user to read 10 characters at a time. A button press advances to the next set of characters, scrolling through the recognized text.
+                        </p>
+                        <div>
+                            <span class="spec-tag">2×3 Grid</span>
+                            <span class="spec-tag">6 Pins / Cell</span>
+                            <span class="spec-tag">10 Cells / Row</span>
+                            <span class="spec-tag">60 Solenoids Total</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+    </div>
+
+    <!-- SOFTWARE PAGE -->
+    <div id="page-software" class="page-section">
+        <section class="hw-hero">
+            <div class="section-label">Software</div>
+            <h1>The recognition pipeline</h1>
+            <p>From raw image to tactile output — here's how the software transforms a photo of text into Braille pin signals.</p>
+        </section>
+
+        <section class="section" style="padding-top: 1rem;">
+
+            <div class="arch-diagram fade-in">
+                <div class="section-label" style="margin-bottom: 1.5rem;">System Architecture</div>
+                <div class="arch-flow">
+                    <div class="arch-block">
+                        <div class="arch-block-icon">📷</div>
+                        <div class="arch-block-name">Camera</div>
+                        <div class="arch-block-label">Image Capture</div>
+                    </div>
+                    <div class="arch-arrow">→</div>
+                    <div class="arch-block highlight">
+                        <div class="arch-block-icon">🧠</div>
+                        <div class="arch-block-name">OCR Engine</div>
+                        <div class="arch-block-label">Tesseract / EasyOCR</div>
+                    </div>
+                    <div class="arch-arrow">→</div>
+                    <div class="arch-block">
+                        <div class="arch-block-icon">🔤</div>
+                        <div class="arch-block-name">Text String</div>
+                        <div class="arch-block-label">Cleaned Output</div>
+                    </div>
+                    <div class="arch-arrow">→</div>
+                    <div class="arch-block highlight">
+                        <div class="arch-block-icon">⠿</div>
+                        <div class="arch-block-name">Braille Map</div>
+                        <div class="arch-block-label">Char → 6-bit</div>
+                    </div>
+                    <div class="arch-arrow">→</div>
+                    <div class="arch-block">
+                        <div class="arch-block-icon">⚡</div>
+                        <div class="arch-block-name">GPIO / Serial</div>
+                        <div class="arch-block-label">Pin Signals</div>
+                    </div>
+                </div>
+            </div>
+
+            <div style="margin-top: 3rem;">
+                <div class="section-header fade-in">
+                    <h2 class="section-title">Pipeline breakdown</h2>
+                </div>
+                <div class="sw-pipeline">
+                    <div class="pipeline-step fade-in">
+                        <div class="pipeline-num">1</div>
+                        <div class="pipeline-content">
+                            <h3>Image Acquisition</h3>
+                            <p>When the user presses the tactile button, the camera captures a high-resolution image. On the Pi 5, we use libcamera for fast, low-latency capture via the CSI bus. On the Arduino path, the Arducam buffers a JPEG over SPI.</p>
+                            <div class="pipeline-tags">
+                                <span class="pipeline-tag">libcamera</span>
+                                <span class="pipeline-tag">CSI / SPI</span>
+                                <span class="pipeline-tag">auto-focus</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="pipeline-step fade-in">
+                        <div class="pipeline-num">2</div>
+                        <div class="pipeline-content">
+                            <h3>Preprocessing</h3>
+                            <p>The raw image is converted to grayscale, thresholded for contrast, and de-skewed if the camera angle is off. This dramatically improves OCR accuracy on imperfect captures.</p>
+                            <div class="pipeline-tags">
+                                <span class="pipeline-tag">OpenCV</span>
+                                <span class="pipeline-tag">grayscale</span>
+                                <span class="pipeline-tag">adaptive threshold</span>
+                                <span class="pipeline-tag">deskew</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="pipeline-step fade-in">
+                        <div class="pipeline-num">3</div>
+                        <div class="pipeline-content">
+                            <h3>Optical Character Recognition</h3>
+                            <p>The preprocessed image is fed into Tesseract OCR (or EasyOCR for more complex scripts). The engine returns a string of recognized characters with confidence scores. We filter low-confidence results.</p>
+                            <div class="pipeline-tags">
+                                <span class="pipeline-tag">Tesseract 5</span>
+                                <span class="pipeline-tag">EasyOCR</span>
+                                <span class="pipeline-tag">Python</span>
+                                <span class="pipeline-tag">confidence filtering</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="pipeline-step fade-in">
+                        <div class="pipeline-num">4</div>
+                        <div class="pipeline-content">
+                            <h3>Braille Translation</h3>
+                            <p>Each character is mapped to its Grade 1 Braille equivalent — a 6-bit pattern representing which of the 6 pins should be raised. The lookup table covers A–Z, 0–9, and common punctuation.</p>
+                            <div class="pipeline-tags">
+                                <span class="pipeline-tag">Grade 1 Braille</span>
+                                <span class="pipeline-tag">6-bit encoding</span>
+                                <span class="pipeline-tag">lookup table</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="pipeline-step fade-in">
+                        <div class="pipeline-num">5</div>
+                        <div class="pipeline-content">
+                            <h3>Solenoid Output</h3>
+                            <p>The 6-bit patterns are serialized and sent to the solenoid driver board. Shift registers fan out the signals to control all 60 pins. The first 10 characters are displayed, and the user advances with the button.</p>
+                            <div class="pipeline-tags">
+                                <span class="pipeline-tag">shift registers</span>
+                                <span class="pipeline-tag">GPIO</span>
+                                <span class="pipeline-tag">serial</span>
+                                <span class="pipeline-tag">60 channels</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="pipeline-step fade-in">
+                        <div class="pipeline-num">6</div>
+                        <div class="pipeline-content">
+                            <h3>Audio Feedback</h3>
+                            <p>The speaker provides confirmation beeps for button presses, announces when text has been captured, and can optionally read text aloud via TTS for users who prefer auditory feedback alongside tactile.</p>
+                            <div class="pipeline-tags">
+                                <span class="pipeline-tag">pyttsx3</span>
+                                <span class="pipeline-tag">espeak</span>
+                                <span class="pipeline-tag">WAV playback</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- ABOUT PAGE -->
+    <div id="page-about" class="page-section">
+        <section class="hw-hero">
+            <div class="section-label">About</div>
+            <h1>About the project</h1>
+            <p>Built by students at Vernon Hills High School for Samsung Solve for Tomorrow 2025.</p>
+        </section>
+
+        <section class="section" style="padding-top: 1rem;">
+            <div class="about-content fade-in">
+                <div class="about-text">
+                    <h2>Our mission</h2>
+                    <p>
+                        BrailleVision was born from a simple question: <em>why is it so hard for visually impaired people to read everyday printed text?</em> Commercial Braille displays exist, but they cost thousands of dollars and are out of reach for most families and schools.
+                    </p>
+                    <p>
+                        We're a team of high school students at Vernon Hills High School competing in Samsung's Solve for Tomorrow competition. Our goal is to prototype a device that can photograph any piece of printed text, run it through optical character recognition, and output the result as raised Braille pins using affordable solenoids.
+                    </p>
+                    <p>
+                        The device is designed to be portable, battery-powered, and simple to operate with a single button. The final version features a row of 10 Braille cells (60 solenoid pins total), letting users read text 10 characters at a time by scrolling through with a button press.
+                    </p>
+                    <p>
+                        We believe accessible technology should be affordable. Our target cost for the full device is under $100 — a fraction of commercial alternatives that can cost $10,000 or more.
+                    </p>
+
+                    <h2 style="margin-top: 2.5rem;">Project timeline</h2>
+                    <div class="timeline">
+                        <div class="timeline-item">
+                            <div class="timeline-date">Phase 1</div>
+                            <div class="timeline-marker">
+                                <div class="timeline-dot"></div>
+                                <div class="timeline-line"></div>
+                            </div>
+                            <div class="timeline-content">
+                                <h4>Research & Planning</h4>
+                                <p>Identified the problem, researched existing solutions, defined hardware options and project scope.</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-date">Phase 2</div>
+                            <div class="timeline-marker">
+                                <div class="timeline-dot"></div>
+                                <div class="timeline-line"></div>
+                            </div>
+                            <div class="timeline-content">
+                                <h4>Proof of Concept</h4>
+                                <p>Single Braille cell prototype with 6 solenoids. Validated OCR pipeline on Raspberry Pi with test images.</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-date">Phase 3</div>
+                            <div class="timeline-marker">
+                                <div class="timeline-dot"></div>
+                                <div class="timeline-line"></div>
+                            </div>
+                            <div class="timeline-content">
+                                <h4>Full Prototype</h4>
+                                <p>Scaling to 10-cell row. Designing custom solenoid driver board, enclosure, and integrated button/speaker.</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-date">Phase 4</div>
+                            <div class="timeline-marker">
+                                <div class="timeline-dot"></div>
+                                <div class="timeline-line"></div>
+                            </div>
+                            <div class="timeline-content">
+                                <h4>Testing & Submission</h4>
+                                <p>User testing with visually impaired individuals, refinement, documentation, and Samsung SFT submission.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="about-sidebar">
+                    <div class="sidebar-card">
+                        <h4>School</h4>
+                        <p>Vernon Hills High School<br>Vernon Hills, Illinois</p>
+                    </div>
+                    <div class="sidebar-card">
+                        <h4>Competition</h4>
+                        <p>Samsung Solve for Tomorrow 2025</p>
+                    </div>
+                    <div class="sidebar-card">
+                        <h4>Project Focus</h4>
+                        <p>Assistive technology for visually impaired individuals</p>
+                    </div>
+                    <div class="sidebar-card">
+                        <h4>Target Cost</h4>
+                        <p>Under $100 per device</p>
+                    </div>
+                    <div class="sidebar-card">
+                        <h4>Learn More</h4>
+                        <p><a href="https://www.samsung.com/us/solvefortomorrow/" target="_blank" rel="noopener">Samsung Solve for Tomorrow ↗</a></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-inner">
+            <div class="footer-left">
+                <div class="footer-logo">
+                    <div class="nav-logo-icon" style="width:24px;height:24px;border-radius:6px;">
+                        <div class="braille-dots" style="gap:1px;">
+                            <span class="active" style="width:4px;height:4px;"></span><span style="width:4px;height:4px;"></span>
+                            <span class="active" style="width:4px;height:4px;"></span><span style="width:4px;height:4px;"></span>
+                            <span class="active" style="width:4px;height:4px;"></span><span style="width:4px;height:4px;"></span>
+                        </div>
+                    </div>
+                    BrailleVision
+                </div>
+                <div class="footer-divider"></div>
+                <span class="footer-copy">Vernon Hills High School · Samsung Solve for Tomorrow 2025</span>
+            </div>
+            <div class="footer-links">
+                <a href="#" onclick="showPage('home')">Home</a>
+                <a href="#" onclick="showPage('hardware')">Hardware</a>
+                <a href="#" onclick="showPage('software')">Software</a>
+                <a href="#" onclick="showPage('about')">About</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
