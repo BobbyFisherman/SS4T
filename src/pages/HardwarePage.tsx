@@ -51,7 +51,7 @@ export default function AboutPage() {
           </AnimIn>
           <AnimIn delay={160}>
             <p className="text-[17px] text-white/45 max-w-[500px] leading-[1.65]">
-              Vernon Hills High School · Samsung Solve for Tomorrow 2025
+              Vernon Hills High School · Samsung Solve for Tomorrow 2027
             </p>
           </AnimIn>
         </div>
