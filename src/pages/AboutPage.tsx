@@ -2,7 +2,7 @@ import AnimIn from '../components/AnimIn';
 
 const sideCards = [
   { title: 'School', content: 'Vernon Hills High School\nVernon Hills, Illinois' },
-  { title: 'Competition', content: 'Samsung Solve for Tomorrow 2025' },
+  { title: 'Competition', content: 'Samsung Solve for Tomorrow 2027' },
   { title: 'Focus', content: 'Assistive technology for visually impaired individuals' },
   { title: 'Target cost', content: 'Under $100 per device' },
 ];
