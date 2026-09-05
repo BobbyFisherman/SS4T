@@ -18,7 +18,7 @@ export default function Footer({ navigate }: FooterProps) {
         <div className="flex items-center gap-4">
           <span className="font-bold text-[14px] text-white">BrailleVision</span>
           <span className="w-px h-4 bg-white/10" />
-          <span className="text-[12px] text-white/30">Vernon Hills HS · Samsung SFT 2025</span>
+          <span className="text-[12px] text-white/30">Vernon Hills HS · Samsung SFT 2027</span>
         </div>
         <div className="flex gap-5">
           {links.map((l) => (
