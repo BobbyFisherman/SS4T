@@ -54,7 +54,7 @@ export default function HomePage({ navigate }: Props) {
           <AnimIn className="inline-flex items-center gap-2 mb-8">
             <span className="w-1.5 h-1.5 rounded-full bg-purple-400 animate-pulse" />
             <span className="text-[11px] font-semibold uppercase tracking-widest text-white/40">
-              Samsung Solve for Tomorrow 2025 · Vernon Hills High School
+              Samsung Solve for Tomorrow 2027 · Vernon Hills High School
             </span>
           </AnimIn>
 
